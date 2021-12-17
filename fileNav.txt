@@ -1,0 +1,32 @@
+'''
+
+Program: fileNav.txt
+Author: Alex Jones
+Date: 10/16/21
+Purpose: Find a file and see individual lines at will.
+
+'''
+def main():
+
+    # Get file name
+    file = open(input("Enter the file name: "), "r")
+    
+    # Break up file lines into a list
+    fileRead = file.read()
+    lines = fileRead.splitlines()
+    
+    # Display line total
+    total = len(lines)
+    print("The total number of lines in this file is " + str(total) + ".")
+    
+    # Prompt user for line number
+    lineNum = int(input("Enter a line number, 0 to exit: "))
+    
+    # Print lines until the user enters 0 
+    while lineNum != 0:
+        if lineNum > total or lineNum < 0:
+            print("Error, line number does not exist.")
+        else:
+            print(lines[lineNum-1])
+        lineNum = int(input("Enter a line number, 0 to exit: "))
+main()
